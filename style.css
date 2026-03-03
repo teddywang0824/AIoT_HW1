@@ -581,60 +581,369 @@ body {
   transform: translateY(0);
 }
 
-/* ===== 響應式設計 ===== */
-@media (max-width: 768px) {
-  .navbar {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+/* ===== 漢堡選單按鈕 ===== */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 110;
+  -webkit-tap-highlight-color: transparent;
+}
 
-  .nav-links {
-    gap: 20px;
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all var(--transition-smooth);
+  transform-origin: center;
+}
+
+/* 漢堡選單開啟狀態 */
+.nav-toggle.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===== 響應式設計 ===== */
+
+/* --- 平板橫向 / 小筆電 (≤ 1024px) --- */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 900px;
+    padding: 0 20px;
   }
 
   .hero {
-    min-height: 70vh;
+    min-height: 75vh;
+    padding: 60px 0;
+  }
+
+  .hero-name {
+    font-size: clamp(2.8rem, 7vw, 5rem);
+  }
+
+  .cards-section {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .clock-card {
+    padding: 50px 32px;
+  }
+
+  .glow-1, .glow-2 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .glow-3 {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* --- 平板直向 (≤ 768px) --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* 顯示漢堡選單按鈕 */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .navbar {
+    padding-left: 16px;
+    padding-right: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* 行動版導航下拉選單 */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    padding: 12px 0 8px;
+    order: 3;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 12px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border-card);
+    text-align: center;
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  /* 英雄區塊 */
+  .hero {
+    min-height: 65vh;
+    padding: 48px 0;
+  }
+
+  .greeting {
+    font-size: 1.1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    padding: 0 8px;
+  }
+
+  /* 時鐘 */
+  .clock-section {
     padding: 60px 0;
   }
 
   .clock-card {
     padding: 40px 20px;
+    border-radius: var(--radius-lg);
   }
 
   .clock-display {
     gap: 4px;
   }
 
+  .clock-ring {
+    width: 240px;
+    height: 240px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 32px;
+  }
+
+  /* 卡片 */
   .cards-section {
     grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 0 60px;
+  }
+
+  .info-card {
+    padding: 32px 24px;
+  }
+
+  /* 聯絡 */
+  .contact-section {
+    padding: 24px 0 60px;
   }
 
   .contact-links {
     flex-direction: column;
     align-items: center;
+    gap: 12px;
   }
 
   .contact-btn {
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
     justify-content: center;
+    padding: 14px 24px;
   }
+
+  /* 頁尾 */
+  .footer {
+    padding: 32px 0;
+  }
+
+  /* 光暈縮小 */
+  .glow-1 { width: 250px; height: 250px; }
+  .glow-2 { width: 200px; height: 200px; }
+  .glow-3 { width: 150px; height: 150px; }
 }
 
+/* --- 手機 (≤ 480px) --- */
 @media (max-width: 480px) {
   .container {
-    padding: 0 16px;
+    padding: 0 12px;
+  }
+
+  .navbar {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .nav-logo {
+    font-size: 1.3rem;
+  }
+
+  .hero {
+    min-height: 60vh;
+    padding: 36px 0;
   }
 
   .hero-name {
-    font-size: 2.8rem;
+    font-size: clamp(2.2rem, 12vw, 3.2rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+  }
+
+  .greeting {
+    font-size: 1rem;
+  }
+
+  .clock-section {
+    padding: 40px 0;
+  }
+
+  .clock-card {
+    padding: 32px 16px;
+    border-radius: var(--radius-md);
   }
 
   .time-value {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 12vw, 3rem);
   }
 
   .time-separator {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .time-label {
+    font-size: 0.65rem;
+    margin-top: 4px;
+  }
+
+  .date-display {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+  }
+
+  .info-card {
+    padding: 28px 20px;
+  }
+
+  .card-icon {
     font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+  }
+
+  .card-desc {
+    font-size: 0.88rem;
+  }
+
+  .contact-btn {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+
+  .footer {
+    font-size: 0.78rem;
+    padding: 24px 0;
+  }
+}
+
+/* --- 極小螢幕 (≤ 360px) --- */
+@media (max-width: 360px) {
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.72rem;
+  }
+
+  .time-value {
+    font-size: 1.8rem;
+  }
+
+  .time-separator {
+    font-size: 1.5rem;
+  }
+
+  .clock-card {
+    padding: 24px 12px;
+  }
+
+  .info-card {
+    padding: 24px 16px;
+  }
+}
+
+/* ===== 觸控與安全區域優化 ===== */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .footer {
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+
+  .navbar {
+    padding-left: calc(16px + env(safe-area-inset-left));
+    padding-right: calc(16px + env(safe-area-inset-right));
+  }
+}
+
+/* 觸控裝置停用 hover 浮起效果以避免殘留 */
+@media (hover: none) {
+  .info-card:hover {
+    transform: none;
+  }
+
+  .contact-btn:hover {
+    transform: none;
+  }
+}
+
+/* 減少動畫偏好（無障礙性） */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

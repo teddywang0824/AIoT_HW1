@@ -192,3 +192,22 @@ window.addEventListener('scroll', () => {
 
   lastScroll = currentScroll;
 });
+
+// ===== 行動版漢堡選單 =====
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+
+  // 點選導航連結後自動收合選單
+  navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
+}

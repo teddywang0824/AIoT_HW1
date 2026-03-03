@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Chia-Yuan Wang — 個人頁面</title>
   <meta name="description" content="Chia-Yuan Wang 的個人頁面，展示即時時鐘與個人資訊。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,7 +19,12 @@
     <!-- 頂部導航列 -->
     <nav class="navbar" id="navbar">
       <div class="nav-logo">CYW</div>
-      <div class="nav-links">
+      <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="#about" class="nav-link">關於</a>
         <a href="#clock" class="nav-link">時鐘</a>
         <a href="#contact" class="nav-link">聯絡</a>
