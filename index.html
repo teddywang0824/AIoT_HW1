@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chia-Yuan Wang — 個人頁面</title>
+  <meta name="description" content="Chia-Yuan Wang 的個人頁面，展示即時時鐘與個人資訊。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 動態粒子背景 -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- 主容器 -->
+  <main class="container">
+    <!-- 頂部導航列 -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">CYW</div>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">關於</a>
+        <a href="#clock" class="nav-link">時鐘</a>
+        <a href="#contact" class="nav-link">聯絡</a>
+      </div>
+    </nav>
+
+    <!-- 英雄區塊 -->
+    <section class="hero" id="about">
+      <div class="hero-content">
+        <div class="greeting" id="greeting">你好 👋</div>
+        <h1 class="hero-name">
+          <span class="name-line">Chia-Yuan</span>
+          <span class="name-line accent">Wang</span>
+        </h1>
+        <p class="hero-subtitle">Student · Developer · Creator</p>
+        <div class="hero-divider"></div>
+        <p class="hero-desc">熱愛科技與創新，持續探索 AIoT 的無限可能。</p>
+      </div>
+
+      <!-- 裝飾性光暈 -->
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <div class="glow glow-3"></div>
+    </section>
+
+    <!-- 時鐘區塊 -->
+    <section class="clock-section" id="clock">
+      <h2 class="section-title">現在時間</h2>
+      <div class="clock-card">
+        <div class="clock-display">
+          <div class="time-unit">
+            <span class="time-value" id="hours">00</span>
+            <span class="time-label">時</span>
+          </div>
+          <span class="time-separator">:</span>
+          <div class="time-unit">
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-label">分</span>
+          </div>
+          <span class="time-separator">:</span>
+          <div class="time-unit">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-label">秒</span>
+          </div>
+        </div>
+        <div class="date-display" id="date-display">載入中...</div>
+        <div class="clock-ring">
+          <svg viewBox="0 0 200 200" class="ring-svg">
+            <circle cx="100" cy="100" r="90" class="ring-bg" />
+            <circle cx="100" cy="100" r="90" class="ring-progress" id="ring-progress" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 資訊卡片區塊 -->
+    <section class="cards-section">
+      <div class="info-card" id="card-1">
+        <div class="card-icon">🎓</div>
+        <h3 class="card-title">學生</h3>
+        <p class="card-desc">在校學習中，專注於資訊技術與人工智慧物聯網領域。</p>
+      </div>
+      <div class="info-card" id="card-2">
+        <div class="card-icon">💻</div>
+        <h3 class="card-title">開發者</h3>
+        <p class="card-desc">熱衷程式開發，喜歡將創意化為實際的應用程式。</p>
+      </div>
+      <div class="info-card" id="card-3">
+        <div class="card-icon">🚀</div>
+        <h3 class="card-title">創造者</h3>
+        <p class="card-desc">勇於嘗試新技術，致力於創造有價值的作品。</p>
+      </div>
+    </section>
+
+    <!-- 聯絡區塊 -->
+    <section class="contact-section" id="contact">
+      <h2 class="section-title">與我聯繫</h2>
+      <div class="contact-links">
+        <a href="mailto:contact@example.com" class="contact-btn" id="btn-email">
+          <span class="btn-icon">✉️</span>
+          <span>Email</span>
+        </a>
+        <a href="https://github.com" target="_blank" class="contact-btn" id="btn-github">
+          <span class="btn-icon">🐙</span>
+          <span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="contact-btn" id="btn-linkedin">
+          <span class="btn-icon">💼</span>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="footer">
+      <p>&copy; 2026 Chia-Yuan Wang. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
