@@ -200,10 +200,54 @@ body {
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.8s ease forwards 0.8s;
+}
+
+.student-info {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards 0.85s;
+}
+
+.info-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  letter-spacing: 0.04em;
+  transition: all var(--transition-smooth);
+}
+
+.info-badge:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.info-badge.accent-badge {
+  color: var(--text-primary);
+  background: rgba(108, 99, 255, 0.15);
+  border-color: rgba(108, 99, 255, 0.3);
+  font-weight: 600;
+}
+
+.info-badge.accent-badge:hover {
+  background: rgba(108, 99, 255, 0.25);
+  border-color: rgba(108, 99, 255, 0.5);
 }
 
 .hero-divider {
